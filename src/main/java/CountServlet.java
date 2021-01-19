@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 
 // TODO: Create a page that displays a number that goes up by one every time the /count page is viewed.
 @WebServlet(name = "PageCounterServlet", urlPatterns = "/count")
-public class PageCounterServlet extends HttpServlet {
+public class CountServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private int counter;
 
