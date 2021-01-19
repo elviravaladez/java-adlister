@@ -12,13 +12,13 @@ public class CountServlet extends HttpServlet {
     private int counter = 0;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        resp.setContentType("text/html");
+        response.setContentType("text/html"); //setting content type
         counter++;
-        PrintWriter out = resp.getWriter();
+        PrintWriter out = response.getWriter(); //write out to the browser
 
-        String count_query = req.getParameter("count_query");
+        String count_query = request.getParameter("count_query");
 
         if(count_query == null) {
             count_query = String.valueOf(counter);
