@@ -9,12 +9,7 @@ import java.io.PrintWriter;
 // TODO: Create a page that displays a number that goes up by one every time the /count page is viewed.
 @WebServlet(name = "PageCounterServlet", urlPatterns = "/count")
 public class CountServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-    private int counter;
-
-    public void init() {
-        counter = 0;
-    }
+    private int counter = 0;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
