@@ -48,7 +48,5 @@ public class PizzaOrderServlet extends HttpServlet {
         request.setAttribute("state", state);
         request.setAttribute("zipcode", zipcode);
         request.setAttribute("toppings", toppings);
-
-        request.getRequestDispatcher("/pizza-app/pizza-order.jsp").forward(request, response);
     }
 }
