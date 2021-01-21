@@ -9,7 +9,7 @@ import java.io.IOException;
 @WebServlet(name = "PizzaOrderServlet", urlPatterns = "/pizza-order")
 public class PizzaOrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/pizza-order.jsp").forward(request, response);
+        request.getRequestDispatcher("/pizza-app/pizza-order.jsp").forward(request, response);
     }
 
     @Override
@@ -50,6 +50,6 @@ public class PizzaOrderServlet extends HttpServlet {
         request.setAttribute("zipcode", zipcode);
         request.setAttribute("toppings", toppings);
 
-        request.getRequestDispatcher("/pizza-order.jsp").forward(request, response);
+        request.getRequestDispatcher("/pizza-app/pizza-order.jsp").forward(request, response);
     }
 }
