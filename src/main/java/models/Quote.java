@@ -1,28 +1,21 @@
-package model;
+package models;
 
-import java.io.Serializable;
-
-public class Quote implements Serializable {
-    private int id;
+public class Quote {
+    private long id;
     private String content;
     private Author author;
 
+    //Zero Constructor
     public Quote() {
 
     }
 
-    public Quote(int id, String content, Author author) {
-        this.id = id;
-        this.content = content;
-        this.author = author;
-    }
-
     //Getters and Setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

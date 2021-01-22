@@ -1,28 +1,21 @@
-package model;
+package models;
 
-import java.io.Serializable;
-
-public class Author implements Serializable {
-    private int id;
+public class Author {
+    private long id;
     private String firstName;
     private String lastName;
 
+    //Zero Constructor
     public Author() {
 
     }
 
-    public Author(int id, String firstName, String lastName) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
     //Getters and Setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

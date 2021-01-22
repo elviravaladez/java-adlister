@@ -1,33 +1,24 @@
-package model;
+package models;
 
-import java.io.Serializable;
-
-public class Album implements Serializable {
-    private int id;
+public class Album {
+    private long id;
     private String artist;
     private String name;
     private int releaseDate;
     private double sales;
     private String genre;
 
+    //Zero Constructor
     public Album() {
 
     }
-    public Album(int id, String artist, String name, int releaseDate, double sales, String genre) {
-        this.id = id;
-        this.artist = artist;
-        this.name = name;
-        this.releaseDate = releaseDate;
-        this.sales = sales;
-        this.genre = genre;
-    }
 
     //Getters and Setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
