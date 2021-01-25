@@ -11,13 +11,8 @@ public class LogoutServlet extends HttpServlet {
     //TODO: When a user visits /logout, they should be logged out of your application and redirected to the login page.
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-
-        if(session != null) {
-            session.removeAttribute("user");
-            session.invalidate();
-            response.sendRedirect("/login");
-            return;
-        }
-        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+        session.removeAttribute("user");
+        session.invalidate();
+        response.sendRedirect("/login");
     }
 }
