@@ -9,8 +9,12 @@ import java.io.IOException;
 @WebServlet(name = "ViewProfileServlet", urlPatterns = "/profile")
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getSession().getAttribute("user") == null) {
+        HttpSession session = request.getSession();
+
+        //TODO: Lock down profile for authorization
+        if(session.getAttribute("user") == null) { //if attribute is empty send them back to login page
             response.sendRedirect("/login");
+            return;
         }
         request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
     }
