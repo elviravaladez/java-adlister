@@ -12,9 +12,6 @@ public class MySQLAdsDao implements Ads {
     //Initializing connection in constructor. Constructor accepts an
         // instance of Config class so that it can obtain the
         // database credentials.
-    MySQLAdsDao() {
-    }
-
     MySQLAdsDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());
