@@ -46,7 +46,7 @@ public class MySQLAdsDao implements Ads {
             rs.next();
             return rs.getLong(1);
         } catch (SQLException e) {
-            throw new RuntimeException("Error creating a new ad.", e);
+            throw new RuntimeException("Error creating a new ad.", e); //throw will not break the app. It's a message of what the error was
         }
     }
 
