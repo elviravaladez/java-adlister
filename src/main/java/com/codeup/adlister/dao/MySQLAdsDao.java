@@ -28,15 +28,31 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public List<Ad> all() {
-        Statement stmt = null;
+        PreparedStatement stmt = null;
+        String sqlQuery = "SELECT * FROM ads";
+
         try {
-            stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM ads");
+            stmt = connection.prepareStatement(sqlQuery);
+
+            ResultSet rs = stmt.executeQuery();
+
             return createAdsFromResults(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
     }
+
+//    @Override
+//    public List<Ad> all() {
+//        Statement stmt = null;
+//        try {
+//            stmt = connection.createStatement();
+//            ResultSet rs = stmt.executeQuery("SELECT * FROM ads");
+//            return createAdsFromResults(rs);
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error retrieving all ads.", e);
+//        }
+//    }
 
     @Override
     public Long insert(Ad ad) {
