@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
+
 import java.sql.*;
 
 public class MySQLUsersDao implements Users {
@@ -21,7 +22,29 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public User findByUsername(String username) {
-        return null;
+        String sqlQuery = "SELECT * FROM users WHERE username LIKE ?";
+        String theUsername = "%" + username + "%";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sqlQuery);
+            stmt.setString(1, theUsername);
+            stmt.executeQuery();
+
+            ResultSet rs = stmt.getResultSet();
+
+            if(rs.next()) {
+                return new User(
+                     rs.getLong("id"),
+                     rs.getString("username"),
+                     rs.getString("email"),
+                     rs.getString("password")
+                );
+            } else {
+                return null;
+            }
+
+        } catch(SQLException e) {
+            throw new RuntimeException("Error finding username!", e);
+        }
     }
 
     @Override
