@@ -29,11 +29,6 @@ public class MySQLUsersDao implements Users {
         return null;
     }
 
-//    @Override
-//    public Long insert(User user) {
-//        return null;
-//    }
-
     @Override
     public Long insert(User user) {
         try {
